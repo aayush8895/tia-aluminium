@@ -273,26 +273,26 @@
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
               <label style="display:flex; flex-direction:column; gap:7px;">
                 <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Full Name *</span>
-                <input required type="text" placeholder="e.g. Rajeev Sharma" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
+                <input name="fullName" required type="text" placeholder="e.g. Rajeev Sharma" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
               </label>
               <label style="display:flex; flex-direction:column; gap:7px;">
                 <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Corporate Email *</span>
-                <input required type="email" placeholder="you@company.com" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
+                <input name="email" required type="email" placeholder="you@company.com" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
               </label>
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
               <label style="display:flex; flex-direction:column; gap:7px;">
                 <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Phone / WhatsApp</span>
-                <input type="tel" placeholder="+91 " style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
+                <input name="phone" type="tel" placeholder="+91 " style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
               </label>
               <label style="display:flex; flex-direction:column; gap:7px;">
                 <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Estimated Quantity *</span>
-                <input required type="text" placeholder="e.g. 2.5 Tons / 800 Kgs" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
+                <input name="quantity" required type="text" placeholder="e.g. 2.5 Tons / 800 Kgs" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"/>
               </label>
             </div>
             <label style="display:flex; flex-direction:column; gap:7px; margin-bottom:16px;">
               <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Sector / Application *</span>
-              <select required style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;">
+              <select name="sector" required style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;">
                 <option value="">Select your sector…</option>
                 <option>Architectural &amp; Facades</option>
                 <option>Industrial Automation</option>
@@ -303,7 +303,7 @@
             </label>
             <label style="display:flex; flex-direction:column; gap:7px; margin-bottom:16px;">
               <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Requirement Details</span>
-              <textarea rows="3" placeholder="Alloy, temper, finish, section dimensions, application…" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; resize:vertical; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"></textarea>
+              <textarea name="details" rows="3" placeholder="Alloy, temper, finish, section dimensions, application…" style="border:1px solid #d9d8d3; border-radius:8px; padding:13px 14px; font-size:15px; color:#22262c; background:#fafaf8; outline:none; resize:vertical; transition:border-color .18s;" style-focus="border-color:#2563a8; background:#fff;"></textarea>
             </label>
             <label style="display:block; margin-bottom:22px;">
               <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178; display:block; margin-bottom:7px;">Blueprint / CAD Upload</span>
@@ -314,7 +314,10 @@
                 <input type="file" onChange="{{ onFile }}" accept=".dwg,.dxf,.pdf,.step,.stp,.png,.jpg" style="display:none;"/>
               </div>
             </label>
-            <button type="submit" style="width:100%; background:#2563a8; color:#fff; font-weight:700; font-size:16px; padding:16px; border:none; border-radius:9px; cursor:pointer; box-shadow:0 10px 26px rgba(37,99,168,0.3); transition:transform .18s, box-shadow .18s;" style-hover="transform:translateY(-2px); box-shadow:0 14px 30px rgba(37,99,168,0.4);">Submit Quote Request →</button>
+            <button type="submit" style="width:100%; background:#2563a8; color:#fff; font-weight:700; font-size:16px; padding:16px; border:none; border-radius:9px; cursor:pointer; box-shadow:0 10px 26px rgba(37,99,168,0.3); transition:transform .18s, box-shadow .18s;" style-hover="transform:translateY(-2px); box-shadow:0 14px 30px rgba(37,99,168,0.4);">{{ submitLabel }}</button>
+            <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size:13px; color:#c0392b; text-align:center; margin-top:12px;">{{ errorMsg }}</p>
+            </sc-if>
             <p style="font-size:12.5px; color:#8a8f96; text-align:center; margin-top:14px;">Your drawing stays confidential. We never share client designs.</p>
           </form>
         </sc-if>
@@ -392,8 +395,23 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+const RFQ_ENDPOINT = "REPLACE_WITH_YOUR_APPS_SCRIPT_WEB_APP_URL";
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      const data = result.slice(result.indexOf(",") + 1);
+      resolve({ name: file.name, mimeType: file.type || "application/octet-stream", data });
+    };
+    reader.onerror = () => reject(new Error("Could not read file"));
+    reader.readAsDataURL(file);
+  });
+}
+
 class Component extends DCLogic {
-  state = { active: 0, submitted: false, fileName: "Click to upload or drag a file here" };
+  state = { active: 0, submitted: false, submitting: false, errorMsg: "", file: null, fileName: "Click to upload or drag a file here" };
 
   renderVals() {
     const active = this.state.active;
@@ -471,12 +489,43 @@ class Component extends DCLogic {
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
       fileName: this.state.fileName,
+      hasError: !!this.state.errorMsg,
+      errorMsg: this.state.errorMsg,
+      submitLabel: this.state.submitting ? "Sending…" : "Submit Quote Request →",
       onFile: (e) => {
         const f = e.target.files && e.target.files[0];
-        if (f) this.setState({ fileName: f.name });
+        if (f) this.setState({ fileName: f.name, file: f });
       },
-      handleSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
-      resetForm: () => this.setState({ submitted: false, fileName: "Click to upload or drag a file here" }),
+      handleSubmit: async (e) => {
+        e.preventDefault();
+        if (this.state.submitting) return;
+        this.setState({ submitting: true, errorMsg: "" });
+        try {
+          const fd = new FormData(e.target);
+          const payload = {
+            fullName: fd.get("fullName") || "",
+            email: fd.get("email") || "",
+            phone: fd.get("phone") || "",
+            quantity: fd.get("quantity") || "",
+            sector: fd.get("sector") || "",
+            details: fd.get("details") || "",
+          };
+          if (this.state.file) {
+            payload.file = await fileToBase64(this.state.file);
+          }
+          const res = await fetch(RFQ_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+          const result = await res.json();
+          if (!result || result.status !== "ok") throw new Error((result && result.message) || "Submission failed");
+          this.setState({ submitted: true, submitting: false, file: null, fileName: "Click to upload or drag a file here" });
+        } catch (err) {
+          this.setState({ submitting: false, errorMsg: "Something went wrong — please try again, or reach us on WhatsApp." });
+        }
+      },
+      resetForm: () => this.setState({ submitted: false, submitting: false, errorMsg: "", file: null, fileName: "Click to upload or drag a file here" }),
     };
   }
 }
