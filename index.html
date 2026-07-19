@@ -270,6 +270,7 @@
         </sc-if>
         <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
           <form onSubmit="{{ handleSubmit }}">
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;"/>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
               <label style="display:flex; flex-direction:column; gap:7px;">
                 <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6b7178;">Full Name *</span>
@@ -509,6 +510,7 @@ class Component extends DCLogic {
             quantity: fd.get("quantity") || "",
             sector: fd.get("sector") || "",
             details: fd.get("details") || "",
+            company_website: fd.get("company_website") || "",
           };
           if (this.state.file) {
             payload.file = await fileToBase64(this.state.file);

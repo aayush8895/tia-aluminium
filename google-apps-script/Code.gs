@@ -6,6 +6,13 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
 
+    if (data.company_website) {
+      // Honeypot field — real users never fill this in. Pretend success
+      // so bots don't notice and adapt, but skip the sheet/email entirely.
+      return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     const sheet = getOrCreateSheet();
     let fileLink = '';
     let fileBlob = null;
