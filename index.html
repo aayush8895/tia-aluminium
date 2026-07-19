@@ -21,6 +21,36 @@
   ::selection { background:#2563a8; color:#fff; }
   @keyframes tiaRise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
   @keyframes tiaFade { from { opacity:0; } to { opacity:1; } }
+
+  /* ---------- Responsive (mobile / tablet) ---------- */
+  img, svg, video { max-width:100%; height:auto; }
+
+  @media (max-width: 820px) {
+    /* Any multi-column layout grid collapses to a single column */
+    [style*="grid-template-columns"] { grid-template-columns:1fr !important; gap:24px !important; }
+  }
+
+  @media (max-width: 680px) {
+    /* Trim the fixed 40px side padding on every page container so
+       content no longer overflows / hugs the screen edge.
+       ("1240px" appears only in the max-width of these containers, and
+       is matched as a bare value so it survives CSSOM reserialization.) */
+    [style*="1240px"] { padding-left:18px !important; padding-right:18px !important; }
+
+    /* Scale down the oversized headings that cause horizontal scroll.
+       Property-qualified so we don't also shrink gap/margin/padding values
+       of 44/40/32px. Both spaced + unspaced forms are listed so the match
+       holds whether or not CSSOM reserialization inserts a space. */
+    [style*="font-size: 66px"], [style*="font-size:66px"] { font-size:36px !important; line-height:1.05 !important; }
+    [style*="font-size: 46px"], [style*="font-size:46px"] { font-size:29px !important; }
+    [style*="font-size: 44px"], [style*="font-size:44px"] { font-size:29px !important; }
+    [style*="font-size: 40px"], [style*="font-size:40px"] { font-size:27px !important; }
+    [style*="font-size: 32px"], [style*="font-size:32px"] { font-size:24px !important; }
+
+    /* Collapse the top-nav section links; keep logo + Call/WhatsApp CTA */
+    .main-nav a[href^="#"] { display:none !important; }
+    .main-nav { gap:12px !important; }
+  }
 </style>
 <title>Aluminium Extrusion Supplier in Delhi NCR | Custom Dies & Profiles — Tia Aluminium Profiles</title>
 <meta name="description" content="Aluminium extrusion supplier in Rohini, New Delhi — standard sections, custom die development, T-slot profiles, heat sinks, solar mounting and architectural profiles. Multi-ton institutional supply across Delhi NCR & North India. 40 years of expertise.">
@@ -39,7 +69,7 @@
           <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8f96; margin-top:3px;">Extrusion · Custom Dies · Supply</span>
         </span>
       </a>
-      <nav style="display:flex; align-items:center; gap:32px;">
+      <nav class="main-nav" style="display:flex; align-items:center; gap:32px;">
         <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
           <a href="{{ link.href }}" style="font-size:14.5px; font-weight:600; color:#3a4048; transition:color .2s;">{{ link.label }}</a>
         </sc-for>

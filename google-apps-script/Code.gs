@@ -1,5 +1,5 @@
 const SHEET_NAME = 'RFQ Submissions';
-const NOTIFY_EMAIL = 'rsaini65@gmail.com';
+const NOTIFY_EMAIL = 'aayush8895@gmail.com';
 const MAX_FILE_BYTES = 25 * 1024 * 1024; // Gmail's attachment cap
 
 function doPost(e) {
