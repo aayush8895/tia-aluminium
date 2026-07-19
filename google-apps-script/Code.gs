@@ -1,5 +1,5 @@
 const SHEET_NAME = 'RFQ Submissions';
-const NOTIFY_EMAIL = 'saini8895@gmail.com';
+const NOTIFY_EMAILS = ['aayush8895@gmail.com', 'rsaini65@gmail.com'];
 const MAX_FILE_BYTES = 25 * 1024 * 1024; // Gmail's attachment cap
 
 function doPost(e) {
@@ -57,7 +57,11 @@ function doPost(e) {
     const mailOptions = {};
     if (fileBlob) mailOptions.attachments = [fileBlob];
 
-    MailApp.sendEmail(NOTIFY_EMAIL, 'New RFQ — Tia Aluminium Profiles', bodyLines.join('\n'), mailOptions);
+    // Sent as separate individual emails (not one email to both addresses)
+    // so neither recipient sees the other's address.
+    NOTIFY_EMAILS.forEach((email) => {
+      MailApp.sendEmail(email, 'New RFQ — Tia Aluminium Profiles', bodyLines.join('\n'), mailOptions);
+    });
 
     return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }))
       .setMimeType(ContentService.MimeType.JSON);
