@@ -1,5 +1,5 @@
 const SHEET_NAME = 'RFQ Submissions';
-const NOTIFY_EMAIL = 'rdaini65@gmail.com';
+const NOTIFY_EMAIL = 'rsaini65@gmail.com';
 const DRIVE_FOLDER_NAME = 'Tia Aluminium - RFQ Uploads';
 
 function doPost(e) {
@@ -23,7 +23,7 @@ function doPost(e) {
       new Date(),
       data.fullName || '',
       data.email || '',
-      data.phone || '',
+      data.phone ? "'" + data.phone : '',
       data.quantity || '',
       data.sector || '',
       data.details || '',
